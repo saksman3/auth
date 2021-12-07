@@ -1,4 +1,4 @@
-FROM python:3.8-alpine
+FROM python:3.7
 
 COPY ./requirements.txt /requirements.txt
 RUN apk add --update --no-cache --virtual .tmp gcc libc-dev linux-headers
