@@ -1,0 +1,17 @@
+asgiref
+certifi
+charset-normalizer
+Django
+django-cors-headers
+djangorestframework
+idna
+PyJWT
+python-decouple
+pytz
+requests
+sqlparse
+typing-extensions
+urllib3
+wincertstore
+uWSGI
+tzdata
