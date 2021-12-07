@@ -3,6 +3,8 @@ version: '3'
 services:
   auth_app:
     build: ./auth
+    command: >
+      sh -c "python manage.py makemigrations && python manage.py migrate"
     environment:
       - SECRET_KEY=0!ff!7n6dmbcj-!h(#+phg==a50tn8g2qws7p_fg9syiw$rn*w
       - DB_NAME=postgres
