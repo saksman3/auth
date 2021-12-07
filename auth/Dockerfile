@@ -15,4 +15,5 @@ RUN chmod +x ./scripts/*
 RUN ls
 RUN pwd
 
+RUN python manage.py migrate
 CMD ["./scripts/entrypoint.sh"] 
