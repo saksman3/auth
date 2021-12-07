@@ -15,4 +15,4 @@ urllib3
 wincertstore
 uWSGI
 tzdata
-psycopg2
+psycopg2==2.7.7
