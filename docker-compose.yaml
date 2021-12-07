@@ -3,6 +3,22 @@ version: '3'
 services:
   auth_app:
     build: ./auth
+    environment:
+      - SECRET_KEY=0!ff!7n6dmbcj-!h(#+phg==a50tn8g2qws7p_fg9syiw$rn*w
+      - DB_NAME=postgres
+      - DB_USER=postgres
+      - DB_PASS=postgres
+      - DB_SERVICE=postgres
+      - DB_PORT=5432
+    depends_on:
+      - db
+  db: 
+    image: postgres:latest
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
 
   proxy:
     build: ./nginx
@@ -10,3 +26,6 @@ services:
       - "80:8080"
     depends_on:
       - auth_app
+
+volumes:
+  pgdata:
