@@ -10,7 +10,7 @@ services:
       - DB_NAME=postgres
       - DB_USER=postgres
       - DB_PASS=s@tfin2021
-      - DB_SERVICE=postgres
+      - DB_SERVICE=db
       - DB_PORT=5432
     depends_on:
       - db
