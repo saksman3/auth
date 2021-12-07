@@ -1,4 +1,4 @@
-FROM python:3.7-alpine
+FROM python:3.7-alpine as base
 
 COPY ./requirements.txt /requirements.txt
 RUN apk add --update --no-cache --virtual .tmp gcc libc-dev linux-headers
@@ -15,5 +15,5 @@ RUN chmod +x ./scripts/*
 RUN ls
 RUN pwd
 
-RUN python manage.py migrate
 CMD ["./scripts/entrypoint.sh"] 
+
