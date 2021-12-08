@@ -24,7 +24,7 @@ services:
     ports:
       - 80:80
     depends_on:
-      - proxy
+      - login_app
 
 #react frontend login service
   login_app:
