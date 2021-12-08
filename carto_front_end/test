@@ -1,0 +1,7 @@
+ curl --request POST \
+ --url 'https://auth.carto.com/oauth/token' \
+ --header 'content-type: application/x-www-form-urlencoded' \
+ --data 'grant_type=client_credentials' \
+ --data 'client_id=bkpjWCmCR9ihlmkr3xFTXFpKY2L53Jh4' \
+ --data 'client_secret=U0kzrjIvnjLoAJL-ZA5V9UwCRWlAaMKqFLzOkZbwClkaqSN2wRgKRnewUfHRODzO' \
+ --data 'audience=carto-cloud-native-api'
