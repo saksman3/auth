@@ -1,6 +1,7 @@
 version: '3'
-
+# services definition
 services:
+# django backend login app service
   auth_app:
     build: ./auth
     environment:
@@ -10,8 +11,33 @@ services:
       - DB_PASS=s@tfin2021
       - DB_SERVICE=db
       - DB_PORT=5432
+    ports:
+      - 80:80
     depends_on:
       - db
+# carto front end service definition    
+  carto_front_end:
+    build:
+      context: ./carto_front_end
+    image: carto-ui
+    container_name: carto-ui
+    ports:
+      - 80:80
+    depends_on:
+      - proxy
+
+#react frontend login service
+  login_app:
+    build: 
+      context: ./loginapp
+    image: login-frontend
+    container_name: login-frontend
+    ports:
+      - 80:80
+    depends_on:
+      - auth_app
+
+# postrges sql db service
   db: 
     image: postgres:latest
     restart: always
@@ -24,12 +50,14 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
+#nginx proxy service
   proxy:
     build: ./nginx
     ports:
-      - "80:8080"
+      - "80:80"
     depends_on:
       - auth_app
+      - carto_front_end
 
 volumes:
   pgdata:
